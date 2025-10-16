@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import '../componentscss/about.css';
+import profile from '../assets/profile.png';
 
 const Aboutus = () => {
   useEffect(() => {
@@ -20,19 +21,17 @@ const Aboutus = () => {
   return (
     <div id='about' className="about-container">
       <section className="text-center py-20 mt-[200px]">
-        <h1 className="text-5xl animate-on-scroll autoShow">We Don't Just Build Websites</h1>
-        <h1 className="text-5xl animate-on-scroll autoShow">We Build <span className="text-orange">Digital Growth Engines</span></h1>
+        <h1 className="text-5xl animate-on-scroll autoShow">I Don't Just Build Websites</h1>
+        <h1 className="text-5xl animate-on-scroll autoShow">I Build <span className="text-orange">Digital Growth Engines</span></h1>
 
-        <div className="flex justify-center gap-30 text-start">
-          <div className="w-[600px]">
-            <p className="text-xl animate-on-scroll mt-40 autoShow">
-              <span className="text-[#ffb74c] text-2xl">Apexium Studio</span> is a premier Webflow and custom web development agency dedicated to crafting exceptional digital experiences that drive real business results. Our team of certified Webflow experts and full-stack developers specializes in building high-performance websites that combine stunning design with cutting-edge functionality. We blend Webflow's visual development platform with custom-coded solutions when projects demand complex features, creating sites that are both beautiful and strategically designed to convert visitors. Every project begins with deep discovery - analyzing your business goals, target audience, and competitive landscape to inform our design and development decisions. We then craft pixel-perfect interfaces with meticulous attention to detail, ensuring your brand identity shines through every element while implementing SEO best practices from day one. This includes semantic HTML structure, optimized page speed, and proper schema markup to maximize search visibility.
-            </p>
+        <div className="flex justify-center gap-30 text-start ">
+          <div className="w-[400px] mt-40 mr-10 animate-on-scroll autoShow">
+            <img src={profile} alt="" />
           </div>
 
           <div className="w-[600px]">
             <p className="text-xl animate-on-scroll mt-40 autoShow" style={{ transitionDelay: '100ms' }}>
-              For e-commerce projects, we build seamless shopping experiences with intuitive navigation, frictionless checkout flows, and conversion-optimized product pages. Our custom development extends beyond Webflow using modern technologies like React, Next.js, and Node.js to create bespoke web applications with advanced functionality. What sets us apart is our commitment to ongoing partnership - we become an extension of your team, providing continuous support and iterative improvements. Whether you're a startup establishing your online presence or an enterprise needing sophisticated solutions, we deliver exceptional results across industries including SaaS, e-commerce, and professional services. At Apexium Studio, we measure success by your success, creating websites that contribute to your bottom line through increased leads, sales, and engagement. Let's collaborate to build something remarkable that moves your business forward in today's competitive digital landscape.
+              Hey, I’m Joy Shadman — a Full-Stack Developer passionate about blending creativity with technology. I design sleek, user-focused interfaces and build robust backend architectures that bring ideas to life. Every project I take on is a chance to create something meaningful, modern, and impactful.
             </p>
           </div>
         </div>

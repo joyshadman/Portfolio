@@ -16,10 +16,10 @@ const Navbar = () => {
               loading="lazy" 
               width="61"
               alt="Apexium Studio Logo" 
-              className="pb-5 mt-10 w-12 sm:w-[61px]" // w-12 for mobile, original size for sm+
+              className="pb-5 mt-10 w-12 sm:w-[61px]" 
             />
-            <span className="text-[#fbb03c] pt-10 pl-3 font-keania text-xl sm:text-2xl" data-hoverable>
-              Apexium Studio
+            <span className="text-[#fbb03c] pt-10 pl-3 font-keania text-xl sm:text-2xl font-[800]" data-hoverable>
+              Joy Shadman
             </span>
           </Link>
           
