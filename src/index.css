@@ -1,0 +1,351 @@
+@import "tailwindcss"; /* Import Tailwind CSS utilities */
+
+/* Custom scrollbar styles for Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: orange #000000;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styles for Webkit browsers */
+html::-webkit-scrollbar {
+  width: 12px;
+  height: 5px;
+  background: #222;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: orange;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #ff9900;
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Kumar+One&family=Keania+One&family=Roboto&display=swap');
+
+/* Ensure videos cover their container */
+.video-container video {
+  object-fit: cover;
+}
+
+/* Set default font for body */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Kumar One font utility class */
+.kumar {
+  font-family: 'Kumar One', cursive;
+}
+
+/* Keania One font utility class */
+.keania {
+  font-family: 'Keania One', cursive;
+}
+
+/* Keyframes for horizontal scrolling animation */
+.scroll-container {
+  display: flex;
+  overflow-x: auto; /* Allow horizontal scrolling */
+  cursor: grab; /* Change cursor to grab */
+}
+
+.scroll-container:active {
+  cursor: grabbing; /* Change cursor to grabbing when active */
+}
+
+/* Keyframes for horizontal scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Apply scrolling animation to elements */
+.animate-scroll {
+  animation: scroll 29s linear infinite;
+  will-change: transform;
+}
+
+/* Picture lights up orange on hover */
+img, .picture {
+  transition: filter 0.2s;
+}
+
+/* animation page */
+@keyframes autoRotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.autoShow {
+  animation: autoShowAnimation both;
+  animation-timeline: view(70% 5%);
+}
+
+@keyframes autoShowAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* holographic card */
+.holographic-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #000;
+}
+
+.holographic-card {
+  background: #111;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+} 
+
+.holographic-card h2 {
+  color: #f3a734;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.holographic-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(255, 146, 4, 0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.holographic-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff9900;
+}
+
+.holographic-card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+
+/* Fade Up and Fade Down Animations */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 1.5s ease forwards;
+}
+
+.fade-down {
+  animation: fadeDown 1.5s ease forwards;
+}
+
+.pop {
+  animation: pop 1.5s ease forwards;
+}
+
+/* up animation */
+.rotate-360 {
+  transform: rotateY(360deg);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .holographic-card {
+    width: 350px;
+    height: 280px;
+  }
+  
+  .holographic-card h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .holographic-container {
+    height: 80vh;
+    padding: 0 20px;
+  }
+  
+  .holographic-card {
+    width: 300px;
+    height: 240px;
+  }
+  
+  .holographic-card h2 {
+    font-size: 1.6rem;
+  }
+  
+  html::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* remove cursor grab on mobile */
+  .scroll-container {
+    cursor: auto;
+    
+  }
+
+  
+}
+
+@media (max-width: 640px) {
+  .holographic-container {
+    height: 100vh; /* full height */
+    padding: 0 10px;
+  }
+  
+  .holographic-card {
+    width: 100%;   /* fit full width */
+    max-width: 95%;
+    height: auto;
+    aspect-ratio: 4 / 3; /* keep proportions */
+  }
+  
+  .holographic-card h2 {
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 0 15px;
+  }
+  
+  .scroll-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px) {
+  .holographic-container {
+    height: 100vh;
+  }
+  
+  .holographic-card {
+    width: 100%;
+    max-width: 95%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+  
+  .holographic-card h2 {
+    font-size: 1.2rem;
+  }
+  
+  .holographic-card:hover {
+    transform: scale(1.03);
+  }
+}
+
+@media (max-width: 380px) {
+  .holographic-card {
+    width: 100%;
+    max-width: 95%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+  
+  .holographic-card h2 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Orientation-specific adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+  .holographic-container {
+    height: 120vh;
+  }
+}
+
+/* High-resolution displays */
+@media (min-resolution: 192dpi) {
+  .holographic-card::before {
+    background: linear-gradient(
+      0deg, 
+      transparent, 
+      transparent 30%, 
+      rgba(255, 146, 4, 0.4)
+    );
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .holographic-card,
+  .holographic-card::before,
+  .fade-up,
+  .fade-down,
+  .pop,
+  .autoShow,
+  .animate-scroll {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}

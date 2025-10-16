@@ -1,0 +1,60 @@
+/* CustomCursor.css */
+.cursor-ball {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 9999;
+  transform: translate(-15px, -15px);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.cursor-ball--big {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  transition: 
+    transform 0.15s cubic-bezier(0.25, 1, 0.5, 1),
+    width 0.3s ease,
+    height 0.3s ease,
+    background 0.3s ease;
+  mix-blend-mode: exclusion;
+  transform-origin: center center;
+}
+
+.cursor-ball--big.hover-active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.cursor-ball--small {
+  width: 8px;
+  height: 8px;
+  background: white;
+  transition: transform 0.1s linear;
+}
+
+html, body, [data-hoverable] {
+  cursor: none !important;
+}
+
+/* Example hoverable element styles */
+[data-hoverable] {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+[data-hoverable]:hover {
+  transform: translateY(-2px);
+}
+
+/* Hide custom cursor on mobile */
+@media (max-width: 768px) {
+  .cursor-ball {
+    display: none !important;
+  }
+
+  html, body, [data-hoverable] {
+    cursor: auto !important; /* Restore default cursor */
+  }
+}

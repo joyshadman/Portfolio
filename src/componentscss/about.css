@@ -1,0 +1,170 @@
+        .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.in-view {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        @keyframes autoShowAnimation {
+        from {
+        opacity: 0;
+        transform: translateY(200px) scale(0.3);
+        }
+        to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        }
+        }
+
+        .autoBlur {
+        animation: autoBlurAnimation both;
+        animation-timeline: view(50%);
+        }
+
+        @keyframes autoBlurAnimation {
+        from {
+        filter: blur(40px);
+        }
+        to {
+        filter: blur(0);
+        }
+        }
+        /* rotation animation */
+        .autoRotate {
+        animation: autoRotateAnimation;
+        animation-timeline: view();
+        }
+
+        @keyframes autoRotateAnimation {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+        }
+        /* responsive  */
+        /* about.css */
+
+/* Base Layout - Maintains your exact design */
+.about-container {
+  background-color: black;
+  color: white;
+  margin-top: 200px;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Kumer One';
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+/* Maintains your orange accent colors */
+.text-orange {
+  color: #ffa724;
+}
+
+.text-light-orange {
+  color: #ffb74c;
+}
+
+/* Big headline section - keeps your exact layout */
+.big-headlines {
+  font-size: 100px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+/* Responsive Adjustments ONLY */
+.about-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-container .flex {
+  display: flex;
+  gap: 30px;
+}
+
+@media (max-width: 1300px) {
+  .about-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .big-headlines {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    margin-top: 100px;
+  }
+
+  .big-headlines {
+    font-size: 50px;
+  }
+
+  .text-5xl {
+    font-size: 2.5rem;
+  }
+
+  /* Stack columns on mobile */
+  .about-container .flex {
+    flex-direction: column;
+  }
+
+  .about-container .flex > div {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .big-headlines {
+    font-size: 40px;
+    font-weight: 700;
+    
+  }
+  .list1{
+    margin-left: 40px;  
+  }
+  .list2{
+    margin-top: 100px;
+  }
+  .list3{
+    margin-left: 30px;
+    margin-top: 100px;
+  }
+  .list4{
+    margin-right: 20px;
+    margin-top: 100px;
+  }
+  .list5{
+    margin-left: 30px;
+    margin-top: 100px;
+    margin-bottom: 200px;
+  }
+  
+  .text-5xl {
+    font-size: 2rem;
+    
+  }
+  
+  .text-xl {
+    font-size: 1rem;
+  }
+}
