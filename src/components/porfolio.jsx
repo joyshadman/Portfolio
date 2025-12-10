@@ -112,26 +112,32 @@ const Portfolio = () => {
           className="mt-[200px] text-[#f3a734] text-5xl mb-5 text-center autoShow"
           style={{ fontFamily: 'Kumar One' }}
         >
-          Our works
+          My works
         </h1>
         <h3
           className="text-white text-2xl mb-30 text-center autoShow"
           style={{ fontFamily: 'Kumar One' }}
         >
-          We design conversion-focused, modern websites that bring your brand to life.
+          I design conversion-focused, modern websites that bring your brand to life.
         </h3>
       </div>
 
       {/* Desktop Auto Slide */}
       <div className="hidden md:flex gap-4 overflow-hidden" ref={desktopRef}>
         {portfolioItems.concat(portfolioItems).map((item, index) => (
-          <div key={index} className="flex-shrink-0 w-[500px] mx-4 mb-20">
+          <div key={index} className="relative flex-shrink-0 w-[500px] mx-4 mb-20 group">
             <LazyImage
               src={item.img}
               alt={item.alt}
               className="w-full h-[300px] object-cover rounded-xl"
               data-hoverable
             />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-800 flex items-center justify-center rounded-xl">
+              <button className="px-10 py-4 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-500 transition " data-hoverable>
+                View
+              </button>
+            </div>
           </div>
         ))}
       </div>
@@ -147,13 +153,19 @@ const Portfolio = () => {
         style={{ cursor: isDown ? 'grabbing' : 'grab' }}
       >
         {portfolioItems.map((item, index) => (
-          <div key={index} className="flex-shrink-0 w-[300px] mx-4 mb-20">
+          <div key={index} className="relative flex-shrink-0 w-[300px] mx-4 mb-20 group">
             <LazyImage
               src={item.img}
               alt={item.alt}
               className="w-full h-[200px] object-cover rounded-xl"
               data-hoverable
             />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
+              <button className="px-4 py-2 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-500 transition">
+                View
+              </button>
+            </div>
           </div>
         ))}
       </div>

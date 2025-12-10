@@ -1,0 +1,40 @@
+@keyframes smoothGlow {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 15px #ff8800);
+  }
+  25% {
+    filter: brightness(1.05) drop-shadow(0 0 25px #ff9900);
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 45px #ffaa00);
+  }
+  75% {
+    filter: brightness(1.05) drop-shadow(0 0 25px #ff9900);
+  }
+  100% {
+    filter: brightness(1) drop-shadow(0 0 15px #ff8800);
+  }
+}
+
+.animate-smooth-glow {
+  animation: smoothGlow 4s ease-in-out infinite;
+  will-change: filter, transform;
+}
+
+/* Base Card Glow */
+[mouse-hoverable="false"] {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Active Hover State */
+[mouse-hoverable="true"] {
+  box-shadow: 0 0 80px 25px rgba(255, 160, 0, 1) ;
+  transform: scale(1.03);
+  filter: brightness(1.2);
+}
+.no-fade,
+.no-fade * {
+  opacity: 1 !important;
+  filter: none !important;
+  transition-property: transform, box-shadow, background, color !important;
+}

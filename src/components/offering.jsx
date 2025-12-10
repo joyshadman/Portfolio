@@ -7,7 +7,7 @@ const Offering = () => {
           className="text-[#f3a734] text-5xl mb-5 text-center"
           style={{ fontFamily: "Kumer One" }}
         >
-          We Offer
+          I Offer
         </h1>
         <h3
           className="text-white text-2xl text-center autoShow"
@@ -32,7 +32,7 @@ const Offering = () => {
           </h2>
           <p className="text-gray-200 leading-relaxed">
             Bespoke websites built from scratch using modern technologies like
-            React, Next.js, and Node.js. We create fully custom solutions
+            React, Next.js, and Node.js. I create fully custom solutions
             tailored to your unique business needs with optimized performance,
             security, and scalability. Perfect for complex web applications and
             unique functionality requirements.
@@ -46,7 +46,7 @@ const Offering = () => {
           </h2>
           <p className="text-gray-200 leading-relaxed">
             Professional Webflow websites with custom interactions and CMS
-            architecture. We combine Webflow's visual editor with custom code
+            architecture. I combine Webflow's visual editor with custom code
             when needed, delivering stunning sites that are easy to maintain.
             Includes SEO-optimized templates, membership systems, and e-commerce
             integrations.
@@ -74,7 +74,7 @@ const Offering = () => {
           </h2>
           <p className="text-gray-200 leading-relaxed">
             Improve your website's search engine visibility through comprehensive
-            technical enhancements. We optimize site architecture, page speed,
+            technical enhancements. I optimize site architecture, page speed,
             mobile responsiveness, structured data, and security. Includes
             crawlability fixes, indexation strategies, and Core Web Vitals
             optimization.
@@ -88,7 +88,7 @@ const Offering = () => {
           </h2>
           <p className="text-gray-200 leading-relaxed">
             Build custom web applications with complex functionality like user
-            accounts, data processing, and API integrations. Our full-stack
+            accounts, data processing, and API integrations. My full-stack
             development covers frontend interfaces, backend systems, database
             architecture, and third-party service connections.
           </p>
@@ -101,7 +101,7 @@ const Offering = () => {
           </h2>
           <p className="text-gray-200 leading-relaxed">
             Optimize your website content for maximum search visibility and
-            conversions. We conduct keyword research, optimize page structure,
+            conversions. I conduct keyword research, optimize page structure,
             improve internal linking, and create SEO-friendly content strategies
             that align with search intent and your business goals.
           </p>
@@ -114,7 +114,7 @@ const Offering = () => {
           </h2>
           <p className="text-gray-200 leading-relaxed">
             Keep your website secure, updated, and performing at its best with
-            our maintenance plans. Includes security patches, performance
+            my maintenance plans. Includes security patches, performance
             monitoring, content updates, backups, and technical support.
             Available for both custom-built and Webflow websites.
           </p>
@@ -127,7 +127,7 @@ const Offering = () => {
           </h2>
           <p className="text-gray-200 leading-relaxed">
             Speed up your website for better user experience and search rankings.
-            We analyze and optimize loading times through code minification,
+            I analyze and optimize loading times through code minification,
             image optimization, caching strategies, and server configuration.
             Includes Core Web Vitals improvements and monitoring.
           </p>
@@ -140,8 +140,8 @@ const Offering = () => {
           </h2>
           <p className="text-gray-200 leading-relaxed">
             Professional interface design focused on usability and conversions.
-            We create intuitive user flows, wireframes, and high-fidelity
-            prototypes that enhance engagement. Our design system approach
+            I create intuitive user flows, wireframes, and high-fidelity
+            prototypes that enhance engagement. my design system approach
             ensures consistency across all pages and devices.
           </p>
         </div>

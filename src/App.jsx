@@ -15,6 +15,7 @@ import Footer from './components/Footer';
 
 import LoginPage from './pages/LoginPage';
 import ScrollToTop from './components/ScrollToTop'; 
+import Animatedpart1 from './components/animatedpart1';
 
 function App() {
   return (
@@ -23,13 +24,14 @@ function App() {
       <Navbar />
       <ScrollToTop /> 
       
-      <Routes>
+      <Routes>             
         <Route
           path="/"
           element={
             <>
               <Hero />
               <Aboutus />
+              {/* <Animatedpart1/> */}
               <Offering />
               <Portfolio />
               <Testimonials />
