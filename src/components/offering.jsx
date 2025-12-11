@@ -7,14 +7,14 @@ const Offering = () => {
           className="text-[#f3a734] text-5xl mb-5 text-center"
           style={{ fontFamily: "Kumer One" }}
         >
-          I Offer
+          What I Offer
         </h1>
         <h3
           className="text-white text-2xl text-center autoShow"
           style={{ fontFamily: "Kumer One" }}
         >
-          Professional website designs that build trust, drive conversions, and
-          reflect your brand identity.
+          End‑to‑end full‑stack development that delivers performance, security,
+          and beautiful user experiences.
         </h3>
       </div>
 
@@ -25,111 +25,100 @@ const Offering = () => {
         px-4 py-8 md:px-8 md:py-12 lg:px-16 
         container mx-auto"
       >
-        {/* 1. Custom Website Development */}
+        {/* 1. Full‑Stack Web Development */}
         <div className="bg-[#111] rounded-xl shadow-lg p-4 md:p-6 lg:p-8 min-h-[320px] md:min-h-[360px] lg:min-h-[400px] hover:shadow-2xl transition-all duration-300 border border-gray-800 holographic-card autoShow">
           <h2 className="text-xl font-bold mb-4 text-[#f3a734]">
-            Custom Website Development
+            Full‑Stack Web Development
           </h2>
           <p className="text-gray-200 leading-relaxed">
-            Bespoke websites built from scratch using modern technologies like
-            React, Next.js, and Node.js. I create fully custom solutions
-            tailored to your unique business needs with optimized performance,
-            security, and scalability. Perfect for complex web applications and
-            unique functionality requirements.
+            Complete front‑end and back‑end development using modern stacks like
+            React, Next.js, Node.js, Express, and MongoDB/PostgreSQL. I build
+            scalable, secure, and high‑performance applications tailored to your
+            business requirements.
           </p>
         </div>
 
-        {/* 2. Webflow Development */}
+        {/* 2. Custom API Development */}
         <div className="bg-[#111] rounded-xl shadow-lg p-4 md:p-6 lg:p-8 min-h-[320px] md:min-h-[360px] lg:min-h-[400px] hover:shadow-2xl transition-all duration-300 border border-gray-800 holographic-card autoShow">
           <h2 className="text-xl font-bold mb-4 text-[#f3a734]">
-            Webflow Development
+            Custom API Development
           </h2>
           <p className="text-gray-200 leading-relaxed">
-            Professional Webflow websites with custom interactions and CMS
-            architecture. I combine Webflow's visual editor with custom code
-            when needed, delivering stunning sites that are easy to maintain.
-            Includes SEO-optimized templates, membership systems, and e-commerce
-            integrations.
+            I build REST and GraphQL APIs with authentication, data validation,
+            access control, and integration capabilities. Perfect for dashboards,
+            SaaS apps, and mobile‑friendly backends.
           </p>
         </div>
 
-        {/* 3. Website Redesign */}
+        {/* 3. Modern Front‑End UI Development */}
         <div className="bg-[#111] rounded-xl shadow-lg p-4 md:p-6 lg:p-8 min-h-[320px] md:min-h-[360px] lg:min-h-[400px] hover:shadow-2xl transition-all duration-300 border border-gray-800 holographic-card autoShow">
           <h2 className="text-xl font-bold mb-4 text-[#f3a734]">
-            Website Redesign
+            Modern Front‑End UI Development
           </h2>
           <p className="text-gray-200 leading-relaxed">
-            Transform your outdated website into a modern, high-performing
-            digital asset. We analyze your current site, identify improvement
-            areas, and rebuild with better UX, visual design, and technical
-            architecture while preserving your SEO equity. Includes content
-            strategy and migration.
+            Pixel‑perfect, responsive UI built using React, Next.js, Tailwind
+            CSS, and component‑driven architecture. I focus on speed, usability,
+            and accessibility to deliver a premium user experience.
           </p>
         </div>
 
-        {/* 4. Technical SEO */}
+        {/* 4. Database Design & Optimization */}
         <div className="bg-[#111] rounded-xl shadow-lg p-4 md:p-6 lg:p-8 min-h-[320px] md:min-h-[360px] lg:min-h-[400px] hover:shadow-2xl transition-all duration-300 border border-gray-800 holographic-card autoShow">
           <h2 className="text-xl font-bold mb-4 text-[#f3a734]">
-            Technical SEO Optimization
+            Database Design & Optimization
           </h2>
           <p className="text-gray-200 leading-relaxed">
-            Improve your website's search engine visibility through comprehensive
-            technical enhancements. I optimize site architecture, page speed,
-            mobile responsiveness, structured data, and security. Includes
-            crawlability fixes, indexation strategies, and Core Web Vitals
-            optimization.
+            Efficient database schemas, indexing, query optimization, and secure
+            data modeling using MongoDB, PostgreSQL, and Firebase. Ensures fast,
+            scalable, and reliable data performance.
           </p>
         </div>
 
-        {/* 5. Web Application Development */}
+        {/* 5. Authentication & Security */}
         <div className="bg-[#111] rounded-xl shadow-lg p-4 md:p-6 lg:p-8 min-h-[320px] md:min-h-[360px] lg:min-h-[400px] hover:shadow-2xl transition-all duration-300 border border-gray-800 holographic-card autoShow">
           <h2 className="text-xl font-bold mb-4 text-[#f3a734]">
-            Web Application Development
+            Authentication & Security
           </h2>
           <p className="text-gray-200 leading-relaxed">
-            Build custom web applications with complex functionality like user
-            accounts, data processing, and API integrations. My full-stack
-            development covers frontend interfaces, backend systems, database
-            architecture, and third-party service connections.
+            Secure user authentication systems including JWT, OAuth, Firebase
+            Auth, and role‑based access control. I implement encryption, input
+            sanitization, and best security practices.
           </p>
         </div>
 
-        {/* 6. Content SEO */}
+        {/* 6. DevOps & Deployment */}
         <div className="bg-[#111] rounded-xl shadow-lg p-4 md:p-6 lg:p-8 min-h-[320px] md:min-h-[360px] lg:min-h-[400px] hover:shadow-2xl transition-all duration-300 border border-gray-800 holographic-card autoShow">
           <h2 className="text-xl font-bold mb-4 text-[#f3a734]">
-            Content & On-Page SEO
+            DevOps & Deployment
           </h2>
           <p className="text-gray-200 leading-relaxed">
-            Optimize your website content for maximum search visibility and
-            conversions. I conduct keyword research, optimize page structure,
-            improve internal linking, and create SEO-friendly content strategies
-            that align with search intent and your business goals.
+            Smooth deployment using Vercel, Netlify, Docker, and cloud hosting.
+            I set up CI/CD, environment variables, and optimized production
+            builds for reliability and speed.
           </p>
         </div>
 
-        {/* 7. Website Maintenance */}
+        {/* 7. Website & App Maintenance */}
         <div className="bg-[#111] rounded-xl shadow-lg p-4 md:p-6 lg:p-8 min-h-[320px] md:min-h-[360px] lg:min-h-[400px] hover:shadow-2xl transition-all duration-300 border border-gray-800 holographic-card autoShow">
           <h2 className="text-xl font-bold mb-4 text-[#f3a734]">
-            Website Maintenance
+            Website & App Maintenance
           </h2>
           <p className="text-gray-200 leading-relaxed">
-            Keep your website secure, updated, and performing at its best with
-            my maintenance plans. Includes security patches, performance
-            monitoring, content updates, backups, and technical support.
-            Available for both custom-built and Webflow websites.
+            Long‑term support including updates, bug fixes, monitoring, backups,
+            and performance improvements for both front‑end and back‑end
+            systems.
           </p>
         </div>
 
         {/* 8. Performance Optimization */}
         <div className="bg-[#111] rounded-xl shadow-lg p-4 md:p-6 lg:p-8 min-h-[320px] md:min-h-[360px] lg:min-h-[400px] hover:shadow-2xl transition-all duration-300 border border-gray-800 holographic-card autoShow">
           <h2 className="text-xl font-bold mb-4 text-[#f3a734]">
-            Website Performance Optimization
+            Performance Optimization
           </h2>
           <p className="text-gray-200 leading-relaxed">
-            Speed up your website for better user experience and search rankings.
-            I analyze and optimize loading times through code minification,
-            image optimization, caching strategies, and server configuration.
-            Includes Core Web Vitals improvements and monitoring.
+            I optimize loading speeds, reduce bundle size, improve server
+            response time, and enhance overall performance using advanced
+            debugging and profiling tools.
           </p>
         </div>
 
@@ -139,10 +128,9 @@ const Offering = () => {
             UI/UX Design
           </h2>
           <p className="text-gray-200 leading-relaxed">
-            Professional interface design focused on usability and conversions.
-            I create intuitive user flows, wireframes, and high-fidelity
-            prototypes that enhance engagement. my design system approach
-            ensures consistency across all pages and devices.
+            Clean, modern, user‑focused design using wireframes, prototypes, and
+            polished UI systems. I blend aesthetic design with real usability
+            principles to create intuitive experiences.
           </p>
         </div>
       </div>
