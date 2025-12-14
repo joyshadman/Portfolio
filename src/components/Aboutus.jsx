@@ -4,6 +4,8 @@ import profile from "../assets/profile.png";
 import Looping from "./Looping";
 import SplitText from "./SplitText";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import Education from "./Education";
+import ShinyText from "./ShinyText";
 
 const Aboutus = () => {
   useEffect(() => {
@@ -73,6 +75,14 @@ const Aboutus = () => {
               rootMargin="-100px"
             />
             <div className="my-4">---------------------------------------------------------------</div>
+            <div className="">
+              <ShinyText
+                text="See My Work & Let's Connect"
+                disabled={false}
+                speed={3}
+                className='custom-class'
+              />
+            </div>
             <div className="flex mt-6 justify-center md:justify-center gap-6">
               <FaGithub
                 size={32}
@@ -91,6 +101,7 @@ const Aboutus = () => {
             </div>
           </div>
         </div>
+        <Education />
 
         {/* Tools Section */}
         <div className="mt-20 w-full max-w-6xl mx-auto text-center hidden md:block">
@@ -99,6 +110,7 @@ const Aboutus = () => {
           </h2>
           <Looping />
         </div>
+
       </section>
 
       {/* Big Headlines */}

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import DarkVeil from "./DarkVeil";
 import SplitText from "./SplitText";
+import ShinyText from "./ShinyText";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -32,8 +33,8 @@ const Hero = () => {
         />
         <SplitText
           text="I am Joy Shadman a Full Stack Developer."
-          className="text-lg sm:text-xl md:text-2xl text-white mt-2 md:mt-2"
-          style={{ fontFamily: "Keania One" }}
+          className="text-lg sm:text-xl md:text-2xl text-white mt-2 md:mt-2 mb-10"
+          style={{ fontFamily: "Keania One",  }}
           delay={200}
           duration={0.8}
           ease="power3.out"
@@ -44,6 +45,13 @@ const Hero = () => {
           rootMargin="-100px"
           textAlign="center"
           onLetterAnimationComplete={handleAnimationComplete}
+        />
+
+        <ShinyText
+          text="Scroll Down to Explore More"
+          disabled={false}
+          speed={3}
+          className='custom-class'
         />
 
         <button
