@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import DarkVeil from "./DarkVeil";
-import SplitText from "./SplitText";
+import SplitText from "./Splittext";
 import ShinyText from "./ShinyText";
 
 const Hero = () => {
