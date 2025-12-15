@@ -4,7 +4,7 @@ const Why = () => {
   return (
     <div className="bg-black">
       <section
-        id="why"
+        id="why"npo
         className="relative block px-4 sm:px-6 md:px-10 py-10 md:py-20 border-t border-b mb-70"
       >
         {/* Heading */}
