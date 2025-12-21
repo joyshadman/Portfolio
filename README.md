@@ -12,7 +12,7 @@ Designed to showcase my work, skills, and services with a sleek and minimal UI.
 
 ## 🚀 Live Demo
 
-🔗 **Live Website:** *(add your link here)*
+🔗 **Live Website:** *https://portfolio-blond-one-49.vercel.app/*
 🔗 **GitHub Repo:** [https://github.com/joyshadman/Portfolio](https://github.com/joyshadman/Portfolio)
 
 ---
