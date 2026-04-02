@@ -5,7 +5,6 @@ import { Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import CustomCursor from './components/customcursor';
-import Hero from './components/Hero';
 import Portfolio from './components/porfolio';
 import Offering from './components/offering';
 import Aboutus from './components/Aboutus';
@@ -28,7 +27,7 @@ function App() {
           path="/"
           element={
             <>
-              <Hero />
+              
               <Aboutus />
               <Offering />
               <Portfolio />
