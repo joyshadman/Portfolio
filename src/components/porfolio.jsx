@@ -1,4 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+
+// Import your images
 import img1 from "../assets/portfolio/1.png";
 import img2 from "../assets/portfolio/2.png";
 import img3 from "../assets/portfolio/3.png";
@@ -7,255 +11,187 @@ import img5 from "../assets/portfolio/5.png";
 import img6 from "../assets/portfolio/6.png";
 import img7 from "../assets/portfolio/7.png";
 
-/* ===================== DATA ===================== */
 const portfolioItems = [
   {
+    img: img7,
+    title: "E-Commerce Platform",
+    category: "Full Stack Development",
+    description: "Full-featured platform with cart logic and seamless payment integration.",
+    link: "https://e-commerce-seven-beige-86.vercel.app/",
+    tags: ["React", "Node.js", "MongoDB"]
+  },
+  {
     img: img1,
-    title: "Instagram Landing Page",
-    description:
-      "A modern landing page for Instagram promotions with responsive design.",
-    alt: "Project 1",
+    title: "Instagram UI Concept",
+    category: "Frontend Excellence",
+    description: "A high-performance landing page focusing on conversion and responsive aesthetics.",
     link: "https://insta-project-tau.vercel.app/",
+    tags: ["Tailwind", "Framer Motion"]
+  },
+  {
+    img: img6,
+    title: "Task Management Pro",
+    category: "Productivity Tool",
+    description: "Modern Todo application featuring drag-and-drop and local persistence.",
+    link: "https://personaltodolist-mu.vercel.app/",
+    tags: ["React", "DND-Kit"]
   },
   {
     img: img2,
-    title: "Travel Agency Website",
-    description:
-      "A sleek, user-friendly travel booking website with interactive UI.",
-    alt: "Project 2",
+    title: "Travel Agency Portal",
+    category: "UI/UX Design",
+    description: "Interactive booking experience with fluid transitions and immersive imagery.",
     link: "https://jadoo-project.vercel.app/",
+    tags: ["Next.js", "UX"]
+  },
+  {
+    img: img5,
+    title: "Gourmet Restaurant",
+    category: "Web Design",
+    description: "Elegant digital menu and reservation system for premium dining.",
+    link: "https://restaurant-project-one-lyart.vercel.app/",
+    tags: ["CSS Grid", "Responsive"]
   },
   {
     img: img3,
-    title: "Coffee Brand Website",
-    description: "Brand website for a coffee shop with online ordering integration.",
-    alt: "Project 3",
+    title: "Brew & Bean",
+    category: "Branding",
+    description: "Minimalist coffee brand experience with integrated online ordering.",
     link: "https://coffee-website-project-rosy.vercel.app/",
+    tags: ["Branding", "Frontend"]
   },
   {
     img: img4,
     title: "Tour Booking Platform",
+    category: "Travel Tech",
     description: "A tour booking platform with smooth UX and responsive design.",
-    alt: "Project 4",
     link: "https://touring-website-project.vercel.app/",
-  },
-  {
-    img: img5,
-    title: "Restaurant Website",
-    description: "Restaurant website with menu, reservation, and contact sections.",
-    alt: "Project 5",
-    link: "https://restaurant-project-one-lyart.vercel.app/",
-  },
-  {
-    img: img6,
-    title: "Personal Todo App",
-    description: "A modern personal todo app with drag-and-drop task management.",
-    alt: "Project 6",
-    link: "https://personaltodolist-mu.vercel.app/",
-  },
-  {
-    img: img7,
-    title: "E-Commerce Website",
-    description: "Full-featured e-commerce platform with cart and payment integration.",
-    alt: "Project 7",
-    link: "https://e-commerce-seven-beige-86.vercel.app/",
+    tags: ["React", "API"]
   },
 ];
 
-/* ===================== LAZY IMAGE ===================== */
-const LazyImage = ({ src, alt, className, ...props }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const imgRef = useRef(null);
-
-  useEffect(() => {
-    const imgEl = imgRef.current;
-    if (!imgEl) return;
-
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setIsVisible(true);
-              observer.unobserve(imgEl);
-            }
-          });
-        },
-        { rootMargin: "100px" }
-      );
-
-      observer.observe(imgEl);
-      return () => observer.disconnect();
-    } else {
-      setIsVisible(true);
-    }
-  }, []);
-
-  return (
-    <img
-      ref={imgRef}
-      src={isVisible ? src : undefined}
-      alt={alt}
-      loading="lazy"
-      className={`transition-all duration-700 ease-out opacity-0 ${
-        isVisible ? "opacity-100" : ""
-      } ${className}`}
-      {...props}
-    />
-  );
-};
-
-/* ===================== PORTFOLIO COMPONENT ===================== */
 const Portfolio = () => {
-  const desktopRef = useRef(null);
-  const mobileRef = useRef(null);
-  const [isDown, setIsDown] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
-  // Mobile tap overlay
-  const [activeIndex, setActiveIndex] = useState(null);
+  // Logic to show either first 6 or all items
+  const visibleItems = showAll ? portfolioItems : portfolioItems.slice(0, 6);
 
-  /* ---------- Mobile drag ---------- */
-  const handleMouseDown = (e) => {
-    setIsDown(true);
-    setStartX(e.pageX - mobileRef.current.offsetLeft);
-    setScrollLeft(mobileRef.current.scrollLeft);
-  };
-  const handleMouseUp = () => setIsDown(false);
-  const handleMouseLeave = () => setIsDown(false);
-  const handleMouseMove = (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - mobileRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    mobileRef.current.scrollLeft = scrollLeft - walk;
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
   };
 
-  /* ---------- Desktop auto slide ---------- */
-  useEffect(() => {
-    const container = desktopRef.current;
-    if (!container) return;
-    let frame;
-    const speed = 1.7;
-
-    const loop = () => {
-      if (!paused) {
-        container.scrollLeft += speed;
-        if (container.scrollLeft >= container.scrollWidth / 2) {
-          container.scrollLeft = 0;
-        }
-      }
-      frame = requestAnimationFrame(loop);
-    };
-
-    loop();
-    return () => cancelAnimationFrame(frame);
-  }, [paused]);
+  const cardVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+  };
 
   return (
-    <div
-      id="portfolio"
-      className="max-w-7xl xl:max-w-[1900px] mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden relative autoShow"
-    >
-      {/* Header */}
-      <h1
-        className="mt-[200px] text-[#f3a734] text-5xl mb-5 text-center"
-        style={{ fontFamily: "Kumar One" }}
-      >
-        My Works
-      </h1>
-      <h3
-        className="text-white text-2xl mb-20 text-center"
-        style={{ fontFamily: "Kumar One" }}
-      >
-        I design conversion-focused, modern websites that bring your brand to life.
-      </h3>
+    <section id="portfolio" className="py-24 bg-black text-white relative">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-[#fbb03c]/5 blur-[150px] pointer-events-none" />
 
-      {/* ================= DESKTOP ================= */}
-      <div
-        ref={desktopRef}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-        className="hidden md:flex gap-4 overflow-hidden"
-      >
-        {portfolioItems.concat(portfolioItems).map((item, index) => (
-          <div
-            key={index}
-            className="relative flex-shrink-0 w-[500px] mx-4 mb-20 group"
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-[#fbb03c] font-mono tracking-[0.3em] uppercase text-sm mb-4"
           >
-            <a href={item.link} target="_blank" rel="noopener noreferrer">
-              <LazyImage
-                src={item.img}
-                alt={item.alt}
-                className="w-full h-[300px] object-cover rounded-xl"
-              />
-            </a>
-            {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center rounded-xl text-center px-6">
-              <h2 className="text-white text-2xl font-bold mb-2">{item.title}</h2>
-              <p className="text-gray-200 text-sm mb-4">{item.description}</p>
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-10 py-4 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-500 transition"
-                data-hoverable
-              >
-                View Project
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
+            Portfolio
+          </motion.h2>
+          <motion.h1 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-6xl font-black tracking-tight"
+          >
+            Featured <span className="text-white/40">Projects</span>
+          </motion.h1>
+        </div>
 
-      {/* ================= MOBILE ================= */}
-      <div
-        ref={mobileRef}
-        className="flex md:hidden gap-4 overflow-x-auto touch-pan-x"
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
-        onMouseMove={handleMouseMove}
-        style={{ cursor: isDown ? "grabbing" : "grab" }}
-      >
-        {portfolioItems.map((item, index) => (
-          <div
-            key={index}
-            className="relative flex-shrink-0 w-[300px] mx-4 mb-20 group"
-          >
-            <a href={item.link} target="_blank" rel="noopener noreferrer">
-              <LazyImage
-                src={item.img}
-                alt={item.alt}
-                className="w-full h-[200px] object-cover rounded-xl"
-              />
-            </a>
-            {/* Tap Overlay */}
-            <div
-              className={`absolute inset-0 bg-black/60 flex flex-col items-center justify-center rounded-xl text-center px-4 transition-opacity duration-300 ${
-                activeIndex === index ? "opacity-100" : "opacity-0"
-              }`}
-              onClick={() =>
-                setActiveIndex(activeIndex === index ? null : index)
-              }
-            >
-              <h2 className="text-white text-lg font-semibold mb-1">{item.title}</h2>
-              <p className="text-gray-200 text-xs mb-2">{item.description}</p>
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-500 transition"
+        {/* Portfolio Grid */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <AnimatePresence>
+            {visibleItems.map((item, index) => (
+              <motion.div
+                key={item.title} // Using title as key for AnimatePresence
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                exit={{ opacity: 0, scale: 0.9 }}
+                whileHover={{ y: -8 }}
+                className="group relative bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-md flex flex-col h-full"
               >
-                View
-              </a>
-            </div>
-          </div>
-        ))}
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-[#fbb03c]">
+                    {item.category}
+                  </div>
+                </div>
+
+                <div className="p-8 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-bold mb-3 group-hover:text-[#fbb03c] transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-white/60 text-sm leading-relaxed mb-6 flex-grow">
+                    {item.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {item.tags.map((tag, i) => (
+                      <span key={i} className="text-[10px] font-mono text-white/40 border border-white/10 px-2 py-1 rounded bg-white/5">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center justify-between pt-6 border-t border-white/5">
+                    <a 
+                      href={item.link} 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="flex items-center gap-2 text-sm font-bold text-white hover:text-[#fbb03c] transition-all"
+                    >
+                      Live Preview <FaExternalLinkAlt size={12} />
+                    </a>
+                    <a href="https://github.com/joyshadman" target="_blank" rel="noreferrer" className="text-white/40 hover:text-white transition-colors">
+                       <FaGithub size={20} />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Dynamic Footer CTA */}
+        <motion.div className="mt-20 text-center">
+          <button 
+            onClick={() => setShowAll(!showAll)}
+            className="group relative px-10 py-4 bg-white text-black font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 active:scale-95"
+          >
+            <div className="absolute inset-0 bg-[#fbb03c] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <span className="relative z-10">
+              {showAll ? "Show Less" : "View All Projects"}
+            </span>
+          </button>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -44,16 +44,13 @@ const SkillStack = () => {
 
   return (
     <div className="w-full py-24 bg-black relative overflow-hidden  " >
-      {/* Background Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#fbb03c]/5 blur-[120px] rounded-full pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-6 relative z-10 ">
         <div className="mb-16">
           <h1 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase" >
             My <span className="text-[#fbb03c]">Skill</span> Stack
           </h1>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skills.map((group, idx) => (
             <div 

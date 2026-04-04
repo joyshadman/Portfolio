@@ -1,8 +1,8 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube, FaArrowUp } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import logo from '../assets/onlylogo.png';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-
 
 const SocialIcons = () => {
   const socialLinks = [
@@ -13,211 +13,110 @@ const SocialIcons = () => {
   ];
 
   return (
-    <div style={{ alignItems: 'center' }} data-hoverable>
-      <ul style={{
-        display: 'flex',
-        listStyle: 'none',
-        padding: 0,
-        margin: 0,
-        gap: '12px' // Added gap for better spacing
-      }}>
-        {socialLinks.map((social, index) => (
-          <li key={index} style={{ margin: 0 }}>
-            <a
-              href="#"
-              className="social-icon"
-              style={{ '--bg-color': social.bgColor }}
-              aria-label={social.label}
-            >
-              <span className="icon">{social.icon}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-      
-      <style jsx>{`
-        .social-icon {
-          cursor: none;
-          width: 40px;
-          height: 40px;
-          background-color: white;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          overflow: hidden;
-          border: 2px solid white;
-          z-index: 1;
-          text-decoration: none;
-          transition: transform 0.3s ease;
-        }
-        
-        .social-icon:hover {
-          transform: translateY(-3px);
-        }
-        
-        .social-icon::before {
-          content: "";
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: var(--bg-color);
-          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-          z-index: 2;
-        }
-        
-        .social-icon:hover::before {
-          top: 0;
-        }
-        
-        .icon {
-          position: relative;
-          color: #262626;
-          transition: all 0.5s ease;
-          z-index: 3;
-          font-size: 18px;
-        }
-        
-        .social-icon:hover .icon {
-          color: white;
-          transform: rotateY(360deg) scale(1.1);
-        }
-      `}</style>
+    <div className="flex gap-4" data-hoverable>
+      {socialLinks.map((social, index) => (
+        <motion.a
+          key={index}
+          href="#"
+          whileHover={{ y: -5 }}
+          className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-white/5 text-white/60 hover:text-white hover:border-[#fbb03c] transition-all duration-300"
+          aria-label={social.label}
+        >
+          {social.icon}
+        </motion.a>
+      ))}
     </div>
   );
 };
 
-
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="bg-[#151414] relative">
-      <div className="container mx-auto px-4">
-        {/* Footer CTA */}
-        <div className="border-b border-[#373636] py-5">
-          <div className="flex flex-wrap -mx-4">
-            <div className="w-full md:w-1/3 px-4 mb-8">
-              <div className="flex items-center">
-                <i className="fas fa-map-marker-alt text-[#ff5e14] text-3xl mr-4"></i>
-              </div>
-            </div>
-            <div className="w-full md:w-1/3 px-4 mb-8">
-              <div className="flex items-center">
-                <i className="fas fa-phone text-[#ff5e14] text-3xl mr-4"></i>
-                <div></div>
-              </div>
-            </div>
-            <div className="w-full md:w-1/3 px-4 mb-8">
-              <div className="flex items-center">
-                <i className="far fa-envelope-open text-[#ff5e14] text-3xl text-center"></i>
-              </div>
-            </div>
-          </div>
-        </div>
+    <footer className="relative bg-black pt-20 pb-10 overflow-hidden border-t border-white/5">
+      {/* Subtle Background Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-[#fbb03c]/5 blur-[120px] rounded-full pointer-events-none" />
 
-        {/* Footer Content */}
-        <div className="py-5 relative z-10">
-          <div className="flex flex-wrap -mx-4">
-            <div className="w-full lg:w-1/3 px-4 mb-10">
-              <div className="mb-8  ">
-                <a className='flex ' href=""data-hoverable>
-                  <img 
-                  data-hoverable
-                    src={logo}
-                    className="max-w-[100px]" 
-                    alt="Apexium Studio Logo"
-                  />
-                              <span data-hoverable className="text-[#fbb03c] pt-10 pl-3 font-keania text-2xl mt-11">
-              Apexium Studio
-            </span>
-                </a>
-              </div>
-              
-              <p className="text-[#7e7e7e] text-sm mb-4 leading-7">
-                Apexium Studio specializes in creating immersive digital experiences through innovative design and cutting-edge technology solutions.
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          
+          {/* Brand Column */}
+          <div className="lg:col-span-1">
+            <Link to="/" className="flex items-center gap-3 mb-6" data-hoverable>
+              <img src={logo} alt="Logo" className="w-10" />
+              <span className="text-white font-bold text-xl tracking-tighter">
+                Apexium <span className="text-[#fbb03c]">Studio</span>
+              </span>
+            </Link>
+            <p className="text-white/40 text-sm leading-relaxed mb-8">
+              Architecting high-performance digital experiences through innovative design and full-stack excellence.
+            </p>
+            <SocialIcons />
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-white font-bold mb-6 font-mono text-sm uppercase tracking-widest">Explore</h4>
+            <ul className="space-y-4 text-sm text-white/50" data-hoverable>
+              <li><Link to="/" className="hover:text-[#fbb03c] transition-colors">Home</Link></li>
+              <li><a href="#about" className="hover:text-[#fbb03c] transition-colors">About</a></li>
+              <li><a href="#portfolio" className="hover:text-[#fbb03c] transition-colors">Portfolio</a></li>
+              <li><Link to="/login" className="hover:text-[#fbb03c] transition-colors">Client Login</Link></li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-white font-bold mb-6 font-mono text-sm uppercase tracking-widest">Services</h4>
+            <ul className="space-y-4 text-sm text-white/50">
+              <li className="hover:text-white transition-colors cursor-default">Full-Stack Development</li>
+              <li className="hover:text-white transition-colors cursor-default">UI/UX Glassmorphism</li>
+              <li className="hover:text-white transition-colors cursor-default">Animated Experiences</li>
+              <li className="hover:text-white transition-colors cursor-default">E-commerce Solutions</li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-white font-bold mb-6 font-mono text-sm uppercase tracking-widest">Let's Connect</h4>
+            <div className="space-y-4">
+              <p className="text-sm text-white/50">
+                Have a vision? We bring it to life with code and design.
               </p>
-              <div>
-                <span className="text-white text-xl font-bold font-poppins block mb-5">Follow us</span>
-                <SocialIcons />
-              </div>
-            </div>
-
-            <div className="w-full lg:w-1/3 px-4 mb-10">
-              <div className="relative mb-10">
-                <h3 className="text-white text-xl font-semibold mb-10">Useful Links</h3>
-                <div className="absolute left-0 bottom-[-15px] h-0.5 w-12 bg-[#ff5e14]"></div>
-              </div>
-              <ul className="flex flex-wrap" data-hoverable>
-                <li className="w-1/2 mb-3">
-                  <a href="#home" className="text-[#878787] capitalize hover:text-[#ff5e14] cursor-none">Home</a>
-                </li>
-                <li className="w-1/2 mb-3">
-                  <a href="#about" className="text-[#878787] capitalize hover:text-[#ff5e14] cursor-none">About</a>
-                </li>
-                <li className="w-1/2 mb-3">
-                  <a href="#services" className="text-[#878787] capitalize hover:text-[#ff5e14] cursor-none">Services</a>
-                </li>
-                <li className="w-1/2 mb-3">
-                  <a href="#portfolio" className="text-[#878787] capitalize hover:text-[#ff5e14] cursor-none">Portfolio</a>
-                </li>
-                <li className="w-1/2 mb-3">
-                  <a href="#contact" className="text-[#878787] capitalize hover:text-[#ff5e14] cursor-none">Contact</a>
-                </li>
-                <li className="w-1/2 mb-3">
-                  <a href="#customer" className="text-[#878787] capitalize hover:text-[#ff5e14] cursor-none">Customer</a>
-                </li>
-                <li className="w-1/2 mb-3">
-                  <a href="#why" className="text-[#878787] capitalize hover:text-[#ff5e14] cursor-none">Why choose us</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="w-full lg:w-1/3 px-4 mb-10">
-              <div className="relative mb-10">
-                <h3 className="text-white text-xl font-semibold mb-10">Mail us</h3>
-                <div className="absolute left-0 bottom-[-15px] h-0.5 w-12 bg-[#ff5e14]"></div>
-              </div>
-              <div className="relative">
-                <span className="text-[#757575] text-sm">mail@apexiumstudio.com</span>
-              </div>
+              <a 
+                href="mailto:mail@apexiumstudio.com" 
+                className="block text-[#fbb03c] font-mono text-sm hover:underline"
+                data-hoverable
+              >
+                mail@apexiumstudio.com
+              </a>
+              <button 
+                onClick={scrollToTop}
+                className="mt-4 flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-white/30 hover:text-white transition-colors"
+                data-hoverable
+              >
+                Back to top <FaArrowUp size={10} />
+              </button>
             </div>
           </div>
-        </div>
-      </div>
+        </div> {/* End Grid */}
 
-      {/* Copyright Area */}
-      <div className="bg-[#202020] py-6">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-center md:text-left mb-4 md:mb-0">
-              <p className="text-[#878787] text-sm">
-                Copyright &copy; {new Date().getFullYear()} Apexium Studio. All Rights Reserved
-              </p>
-            </div>
-            <div className="hidden md:block" data-hoverable>
-              <ul className="flex">
-                <li className="ml-5">
-                  <a href="#home" className="text-[#878787] text-sm hover:text-[#ff5e14] cursor-none">Home</a>
-                </li>
-                <li className="ml-5">
-                  <a href="#" className="text-[#878787] text-sm hover:text-[#ff5e14] cursor-none">Terms</a>
-                </li>
-                <li className="ml-5">
-                  <a href="#" className="text-[#878787] text-sm hover:text-[#ff5e14] cursor-none">Privacy</a>
-                </li>
-                <li className="ml-5">
-                  <a href="#" className="text-[#878787] text-sm hover:text-[#ff5e14] cursor-none">Policy</a>
-                </li>
-                <li className="ml-5">
-                  <a href="#" className="text-[#878787] text-sm hover:text-[#ff5e14] cursor-none">Contact</a>
-                </li>
-              </ul>
-            </div>
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-white/20">
+            &copy; {currentYear} Apexium Studio. Crafted with precision.
+          </p>
+          
+          <div className="flex gap-8 text-[10px] uppercase tracking-[0.1em] text-white/20" data-hoverable>
+            <a href="#" className="hover:text-white transition-colors">Privacy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms</a>
           </div>
-        </div>
-      </div>
+        </div> {/* End Bottom Bar */}
+      </div> {/* End Container */}
     </footer>
   );
 };

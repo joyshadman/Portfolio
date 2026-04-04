@@ -1,19 +1,14 @@
 import './App.css';
 import './index.css';
-
 import { Routes, Route } from 'react-router-dom';
-
 import Navbar from './components/Navbar';
 import CustomCursor from './components/customcursor';
 import Portfolio from './components/porfolio';
-import Offering from './components/offering';
 import Aboutus from './components/Aboutus';
-import Testimonials from './components/Testimonials';
-import Why from './components/why';
 import Footer from './components/Footer';
-
 import LoginPage from './pages/LoginPage';
 import ScrollToTop from './components/ScrollToTop'; 
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -27,12 +22,9 @@ function App() {
           path="/"
           element={
             <>
-              
               <Aboutus />
-              <Offering />
               <Portfolio />
-              <Testimonials />
-              <Why />
+              <Contact/>
               <Footer />
             </>
           }
