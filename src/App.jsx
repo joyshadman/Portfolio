@@ -1,4 +1,3 @@
-import './App.css';
 import './index.css';
 import { useEffect, useState } from "react";
 import { Routes, Route } from 'react-router-dom';
@@ -13,6 +12,7 @@ import Footer from './components/Footer';
 import LoginPage from './pages/LoginPage';
 import ScrollToTop from './components/ScrollToTop'; 
 import Contact from './components/Contact';
+import Contribution from './components/contrebution';
 
 function App() {
   const [init, setInit] = useState(false);
@@ -98,6 +98,7 @@ function App() {
               <>
                 <Aboutus />
                 <Portfolio />
+                <Contribution />
                 <Contact/>
                 <Footer />
               </>

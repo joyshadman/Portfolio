@@ -10,39 +10,49 @@ import img4 from "../assets/portfolio/4.png";
 import img5 from "../assets/portfolio/5.png";
 import img6 from "../assets/portfolio/6.png";
 import img7 from "../assets/portfolio/7.png";
+import img8 from "../assets/portfolio/8.png";
+import img9 from "../assets/portfolio/9.png";
 
 const portfolioItems = [
+  {
+    img: img6,
+    title: "TaskFlow",
+    category: "Productivity Tool",
+    description: "Modern Todo application featuring drag-and-drop and local persistence.",
+    link: "https://personaltodolist-mu.vercel.app/",
+    tags: ["React", "local storage", "firebase", "framer motion", "tailwind", "authentication"]
+  },
+  {
+    img: img8,
+    title: "Moviehub",
+    category: "Full Stack Development",
+    description: "A dynamic movie streaming platform featuring real-time data fetching, user authentication, and a responsive glassmorphic interface.",
+    link: "movie-hub-sigma-five.vercel.app/",
+    tags: ["React", "local storage", "firebase", "framer motion", "tailwind", "authentication"]
+  },
+{
+    img: img9,
+    title: "NeuralTrade Predictor",
+    category: "Fintech & Full-Stack",
+    description: "A high-fidelity trading dashboard featuring real-time market analysis, predictive signaling, and a glassmorphic 'Neural Log' for tracking asset volatility.",
+    link: "https://movie-hub-sigma-five.vercel.app/", // Note: You might want to update this URL to match the title
+    tags: ["React", "Firebase", "Framer Motion", "Tailwind CSS", "Recharts", "Lucide Icons","Socket","API Integration",""]
+  },
   {
     img: img7,
     title: "E-Commerce Platform",
     category: "Full Stack Development",
     description: "Full-featured platform with cart logic and seamless payment integration.",
     link: "https://e-commerce-seven-beige-86.vercel.app/",
-    tags: ["React", "Node.js", "MongoDB"]
+    tags: ["React", "Tailwind", "dummy data", "react store", "React Redux", "local storage"]
   },
   {
     img: img1,
-    title: "Instagram UI Concept",
-    category: "Frontend Excellence",
-    description: "A high-performance landing page focusing on conversion and responsive aesthetics.",
+    title: "PumpInsta Agency",
+    category: "Agency Solution",
+    description: "A premium marketing agency platform designed for Instagram growth. Features custom analytics dashboards, automated lead funnels, and high-conversion aesthetic layouts.",
     link: "https://insta-project-tau.vercel.app/",
-    tags: ["Tailwind", "Framer Motion"]
-  },
-  {
-    img: img6,
-    title: "Task Management Pro",
-    category: "Productivity Tool",
-    description: "Modern Todo application featuring drag-and-drop and local persistence.",
-    link: "https://personaltodolist-mu.vercel.app/",
-    tags: ["React", "DND-Kit"]
-  },
-  {
-    img: img2,
-    title: "Travel Agency Portal",
-    category: "UI/UX Design",
-    description: "Interactive booking experience with fluid transitions and immersive imagery.",
-    link: "https://jadoo-project.vercel.app/",
-    tags: ["Next.js", "UX"]
+    tags: ["React", "Tailwind CSS"]
   },
   {
     img: img5,
@@ -67,6 +77,14 @@ const portfolioItems = [
     description: "A tour booking platform with smooth UX and responsive design.",
     link: "https://touring-website-project.vercel.app/",
     tags: ["React", "API"]
+  },
+  {
+    img: img2,
+    title: "Travel Agency Portal",
+    category: "UI/UX Design",
+    description: "Interactive booking experience with fluid transitions and immersive imagery.",
+    link: "https://jadoo-project.vercel.app/",
+    tags: ["Next.js", "UX"]
   },
 ];
 
@@ -96,14 +114,14 @@ const Portfolio = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="text-[#fbb03c] font-mono tracking-[0.3em] uppercase text-sm mb-4"
           >
             Portfolio
           </motion.h2>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-black tracking-tight"
@@ -113,7 +131,7 @@ const Portfolio = () => {
         </div>
 
         {/* Portfolio Grid */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -160,16 +178,16 @@ const Portfolio = () => {
                   </div>
 
                   <div className="flex items-center justify-between pt-6 border-t border-white/5">
-                    <a 
-                      href={item.link} 
-                      target="_blank" 
+                    <a
+                      href={item.link}
+                      target="_blank"
                       rel="noreferrer"
                       className="flex items-center gap-2 text-sm font-bold text-white hover:text-[#fbb03c] transition-all" data-hoverable
                     >
                       Live Preview <FaExternalLinkAlt size={12} />
                     </a>
                     <a href="https://github.com/joyshadman" target="_blank" rel="noreferrer" className="text-white/40 hover:text-white transition-colors" data-hoverable>
-                       <FaGithub size={20} />
+                      <FaGithub size={20} />
                     </a>
                   </div>
                 </div>
@@ -180,11 +198,11 @@ const Portfolio = () => {
 
         {/* Dynamic Footer CTA */}
         <motion.div className="mt-20 text-center">
-          <button 
+          <button
             onClick={() => setShowAll(!showAll)}
             className="group relative px-10 py-4 bg-white text-black font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 active:scale-95" data-hoverable
           >
-            <div className="absolute inset-0 bg-[#fbb03c] translate-y-full group-hover:translate-y-0 transition-transform duration-300"  />
+            <div className="absolute inset-0 bg-[#fbb03c] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             <span className="relative z-10">
               {showAll ? "Show Less" : "View All Projects"}
             </span>
