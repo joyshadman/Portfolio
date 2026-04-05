@@ -17,15 +17,11 @@ const Hero = () => {
   const githubUsername = "joyshadman";
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black px-4 sm:px-6 pt-24 lg:pt-20">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden px-4 sm:px-6 pt-24 lg:pt-20">
       
-      {/* Background Decorative Elements */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#fbb03c]/10 blur-[120px] rounded-full animate-pulse" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[100px] rounded-full" />
-      
-      {/* Massive Background Watermark Text */}
+      {/* Massive Background Watermark Text - Low Opacity */}
       <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <h1 className="text-[20vw] font-black text-white/[0.02] leading-none uppercase tracking-tighter">
+        <h1 className="text-[20vw] font-black text-white/[0.03] leading-none uppercase tracking-tighter">
           Developer
         </h1>
       </div>
@@ -35,15 +31,17 @@ const Hero = () => {
         {/* RIGHT CONTENT (Image Stage) */}
         <div className="lg:col-span-5 flex justify-center order-1 lg:order-2">
           <div className="relative group">
-            <div className="absolute inset-0 border border-[#fbb03c]/20 rounded-full scale-110 sm:scale-125 animate-[spin_10s_linear_infinite]" />
+            {/* Animated Rings - Glassy/Transparent style */}
+            <div className="absolute inset-0 border border-white/10 rounded-full scale-110 sm:scale-125 animate-[spin_10s_linear_infinite]" />
             <div className="absolute inset-0 border border-white/5 rounded-full scale-125 sm:scale-150 animate-[spin_15s_linear_infinite_reverse]" />
             
             <motion.div 
               whileHover={{ rotateY: 8, rotateX: -5, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="relative w-56 h-56 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-[2.5rem] sm:rounded-[3.5rem] overflow-hidden border border-white/20 bg-white/5 backdrop-blur-2xl p-2 sm:p-3 shadow-[0_0_50px_rgba(251,176,60,0.1)]"
+              className="relative w-56 h-56 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-[2.5rem] sm:rounded-[3.5rem] overflow-hidden border border-white/20 bg-white/5 backdrop-blur-2xl p-2 sm:p-3 shadow-2xl"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#fbb03c]/10 to-transparent pointer-events-none z-10" />
+              {/* Glassy Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none z-10" />
               <img 
                 src={`https://github.com/${githubUsername}.png`} 
                 alt="Joy Shadman" 
