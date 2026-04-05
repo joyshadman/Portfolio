@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { FaGithub, FaLinkedin, FaArrowRight } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaArrowRight, FaDownload } from "react-icons/fa";
 import { motion } from "framer-motion";
 import SplitText from "./Splittext"; 
 import ShinyText from "./ShinyText"; 
@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#fbb03c]/10 blur-[120px] rounded-full animate-pulse" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[100px] rounded-full" />
       
-      {/* Massive Background Watermark Text - Hidden on small screens for clarity */}
+      {/* Massive Background Watermark Text */}
       <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <h1 className="text-[20vw] font-black text-white/[0.02] leading-none uppercase tracking-tighter">
           Developer
@@ -32,14 +32,12 @@ const Hero = () => {
 
       <div className="relative z-10 w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         
-        {/* RIGHT CONTENT (Mobile: Top | Desktop: Right) */}
+        {/* RIGHT CONTENT (Image Stage) */}
         <div className="lg:col-span-5 flex justify-center order-1 lg:order-2">
           <div className="relative group">
-            {/* Animated Background Rings */}
             <div className="absolute inset-0 border border-[#fbb03c]/20 rounded-full scale-110 sm:scale-125 animate-[spin_10s_linear_infinite]" />
             <div className="absolute inset-0 border border-white/5 rounded-full scale-125 sm:scale-150 animate-[spin_15s_linear_infinite_reverse]" />
             
-            {/* Glassy Image Stage */}
             <motion.div 
               whileHover={{ rotateY: 8, rotateX: -5, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -55,7 +53,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* LEFT CONTENT (Mobile: Bottom | Desktop: Left) */}
+        {/* LEFT CONTENT */}
         <div className="lg:col-span-7 text-center lg:text-left order-2 lg:order-1">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -86,14 +84,25 @@ const Hero = () => {
             />
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-            {/* Primary CTA */}
-            <button className="w-full sm:w-auto group relative px-8 py-4 bg-[#fbb03c] rounded-2xl font-bold text-black overflow-hidden transition-all hover:scale-105 active:scale-95">
+          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
+            {/* Primary CTA: Projects */}
+            <button className="w-full sm:w-auto group relative px-8 py-4 bg-[#fbb03c] rounded-2xl font-bold text-black overflow-hidden transition-all hover:scale-105 active:scale-95" data-hoverable>
               <div className="absolute inset-0 bg-white/30 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               <span className="relative flex items-center justify-center gap-2">
                 View My Projects <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </span>
             </button>
+
+            {/* Secondary CTA: Resume */}
+            <a 
+              href="#" 
+              target="_blank" 
+              rel="noreferrer"
+              className="w-full sm:w-auto group px-8 py-4 rounded-2xl border border-white/10 bg-white/5 text-white font-bold backdrop-blur-xl hover:bg-white/10 hover:border-white/20 transition-all flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
+              data-hoverable
+            >
+              Resume <FaDownload className="text-sm group-hover:translate-y-0.5 transition-transform" />
+            </a>
 
             {/* Social Links */}
             <div className="flex items-center gap-4">
@@ -107,7 +116,7 @@ const Hero = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="p-4 rounded-2xl bg-white/5 border border-white/10 text-white hover:bg-[#fbb03c] hover:text-black transition-all hover:-translate-y-1 backdrop-blur-xl"
-                >
+                  data-hoverable>
                   {social.icon}
                 </a>
               ))}

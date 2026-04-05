@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube, FaArrowUp } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube, FaArrowUp, FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import logo from '../assets/onlylogo.png';
@@ -7,9 +7,9 @@ import logo from '../assets/onlylogo.png';
 const SocialIcons = () => {
   const socialLinks = [
     { icon: <FaFacebookF />, bgColor: '#3b5999', label: 'Facebook' },
-    { icon: <FaTwitter />, bgColor: '#000000', label: 'X (Twitter)' },
     { icon: <FaLinkedinIn />, bgColor: '#0077b5', label: 'LinkedIn' },
-    { icon: <FaYoutube />, bgColor: '#ff0000', label: 'YouTube' }
+    { icon: <FaYoutube />, bgColor: '#ff0000', label: 'YouTube' },
+    { icon: <FaGithub />, bgColor: '#333', label: 'GitHub' }
   ];
 
   return (
@@ -20,6 +20,7 @@ const SocialIcons = () => {
           href="#"
           whileHover={{ y: -5 }}
           className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-white/5 text-white/60 hover:text-white hover:border-[#fbb03c] transition-all duration-300"
+          data-hoverable
           aria-label={social.label}
         >
           {social.icon}
@@ -62,21 +63,21 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-6 font-mono text-sm uppercase tracking-widest">Explore</h4>
             <ul className="space-y-4 text-sm text-white/50" data-hoverable>
-              <li><Link to="/" className="hover:text-[#fbb03c] transition-colors">Home</Link></li>
-              <li><a href="#about" className="hover:text-[#fbb03c] transition-colors">About</a></li>
-              <li><a href="#portfolio" className="hover:text-[#fbb03c] transition-colors">Portfolio</a></li>
-              <li><Link to="/login" className="hover:text-[#fbb03c] transition-colors">Client Login</Link></li>
+              <li><Link to="/" className="hover:text-[#fbb03c] transition-colors" data-hoverable>Home</Link></li>
+              <li><a href="#about" className="hover:text-[#fbb03c] transition-colors" data-hoverable>About</a></li>
+              <li><a href="#portfolio" className="hover:text-[#fbb03c] transition-colors" data-hoverable>Portfolio</a></li>
+              <li><Link to="/login" className="hover:text-[#fbb03c] transition-colors" data-hoverable>Client Login</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-bold mb-6 font-mono text-sm uppercase tracking-widest">Services</h4>
-            <ul className="space-y-4 text-sm text-white/50">
-              <li className="hover:text-white transition-colors cursor-default">Full-Stack Development</li>
-              <li className="hover:text-white transition-colors cursor-default">UI/UX Glassmorphism</li>
-              <li className="hover:text-white transition-colors cursor-default">Animated Experiences</li>
-              <li className="hover:text-white transition-colors cursor-default">E-commerce Solutions</li>
+            <h4 className="text-white font-bold mb-6 font-mono text-sm uppercase tracking-widest" data-hoverable>Services</h4>
+            <ul className="space-y-4 text-sm text-white/50" data-hoverable>
+              <li className="hover:text-white transition-colors cursor-default" data-hoverable>Full-Stack Development</li>
+              <li className="hover:text-white transition-colors cursor-default" data-hoverable>UI/UX Glassmorphism</li>
+              <li className="hover:text-white transition-colors cursor-default" data-hoverable>Animated Experiences</li>
+              <li className="hover:text-white transition-colors cursor-default" data-hoverable>E-commerce Solutions</li>
             </ul>
           </div>
 

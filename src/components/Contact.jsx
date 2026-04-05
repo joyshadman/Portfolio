@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Contact = () => {
     const navigate = useNavigate(); 
     
-    const email = "joyshadman@example.com"; 
+    const email = "joyshadman@gmail.com"; 
     const github = "https://github.com/joyshadman";
     const linkedin = "https://linkedin.com/in/joyshadman";
 
@@ -92,8 +92,7 @@ const Contact = () => {
                                 initial={{ opacity: 0, x: 30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="group flex items-center gap-6 p-6 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-xl hover:bg-white/10 hover:border-white/20 transition-all"
-                            >
+                                className="group flex items-center gap-6 p-6 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-xl hover:bg-white/10 hover:border-white/20 transition-all" data-hoverable                 >
                                 <div className="text-3xl p-4 bg-white/5 rounded-2xl group-hover:scale-110 transition-transform">
                                     {method.icon}
                                 </div>

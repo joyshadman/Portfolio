@@ -164,11 +164,11 @@ const Portfolio = () => {
                       href={item.link} 
                       target="_blank" 
                       rel="noreferrer"
-                      className="flex items-center gap-2 text-sm font-bold text-white hover:text-[#fbb03c] transition-all"
+                      className="flex items-center gap-2 text-sm font-bold text-white hover:text-[#fbb03c] transition-all" data-hoverable
                     >
                       Live Preview <FaExternalLinkAlt size={12} />
                     </a>
-                    <a href="https://github.com/joyshadman" target="_blank" rel="noreferrer" className="text-white/40 hover:text-white transition-colors">
+                    <a href="https://github.com/joyshadman" target="_blank" rel="noreferrer" className="text-white/40 hover:text-white transition-colors" data-hoverable>
                        <FaGithub size={20} />
                     </a>
                   </div>
@@ -182,9 +182,9 @@ const Portfolio = () => {
         <motion.div className="mt-20 text-center">
           <button 
             onClick={() => setShowAll(!showAll)}
-            className="group relative px-10 py-4 bg-white text-black font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 active:scale-95"
+            className="group relative px-10 py-4 bg-white text-black font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 active:scale-95" data-hoverable
           >
-            <div className="absolute inset-0 bg-[#fbb03c] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <div className="absolute inset-0 bg-[#fbb03c] translate-y-full group-hover:translate-y-0 transition-transform duration-300"  />
             <span className="relative z-10">
               {showAll ? "Show Less" : "View All Projects"}
             </span>
