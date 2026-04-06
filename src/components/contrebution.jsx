@@ -9,7 +9,7 @@ const Contribution = () => {
   };
 
   return (
-    <section className="py-20 flex flex-col items-center justify-center bg-transparent">
+    <section id='contrebution' className="py-20 flex flex-col items-center justify-center bg-transparent">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

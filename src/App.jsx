@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from 'react-router-dom';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import { motion } from "framer-motion"; // Added motion
 
 import Navbar from './components/Navbar';
 import CustomCursor from './components/customcursor';
@@ -14,10 +15,21 @@ import ScrollToTop from './components/ScrollToTop';
 import Contact from './components/Contact';
 import Contribution from './components/contrebution';
 
+// A simple reusable wrapper for scroll animations
+const ScrollReveal = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
+    {children}
+  </motion.div>
+);
+
 function App() {
   const [init, setInit] = useState(false);
 
-  // Initialize the particles engine once
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
@@ -32,7 +44,7 @@ function App() {
       events: {
         onHover: {
           enable: true,
-          mode: "grab", // Creates a link to the cursor
+          mode: "grab",
         },
       },
       modes: {
@@ -43,7 +55,7 @@ function App() {
       },
     },
     particles: {
-      color: { value: "#fbb03c" }, // Matches your Joy Shadman accent color
+      color: { value: "#fbb03c" }, 
       links: {
         color: "#fbb03c",
         distance: 150,
@@ -75,7 +87,7 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#050505] text-white">
+    <div className="relative min-h-screen bg-[#050505] text-white selection:bg-[#fbb03c]/30">
       {/* Live Animated Background */}
       {init && (
         <Particles
@@ -95,13 +107,13 @@ function App() {
           <Route
             path="/"
             element={
-              <>
-                <Aboutus />
-                <Portfolio />
-                <Contribution />
-                <Contact/>
+              <main>
+                <ScrollReveal><Aboutus /></ScrollReveal>
+                <ScrollReveal><Portfolio /></ScrollReveal>
+                <ScrollReveal><Contribution /></ScrollReveal>
+                <ScrollReveal><Contact /></ScrollReveal>
                 <Footer />
-              </>
+              </main>
             }
           />
           <Route path="/login" element={<LoginPage />} />

@@ -16,8 +16,16 @@ const Hero = () => {
   // GitHub Username for dynamic profile pic
   const githubUsername = "joyshadman";
 
+  // Scroll function for the "View My Projects" button
+  const scrollToPortfolio = () => {
+    const portfolioSection = document.getElementById("portfolio");
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden px-4 sm:px-6 pt-24 lg:pt-20">
+    <section id="about" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden px-4 sm:px-6 pt-24 lg:pt-20">
       
       {/* Massive Background Watermark Text - Low Opacity */}
       <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none select-none overflow-hidden">
@@ -83,8 +91,12 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
-            {/* Primary CTA: Projects */}
-            <button className="w-full sm:w-auto group relative px-8 py-4 bg-[#fbb03c] rounded-2xl font-bold text-black overflow-hidden transition-all hover:scale-105 active:scale-95" data-hoverable>
+            {/* Primary CTA: Projects - Updated with onClick for scroll */}
+            <button 
+              onClick={scrollToPortfolio}
+              className="w-full sm:w-auto group relative px-8 py-4 bg-[#fbb03c] rounded-2xl font-bold text-black overflow-hidden transition-all hover:scale-105 active:scale-95" 
+              data-hoverable
+            >
               <div className="absolute inset-0 bg-white/30 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               <span className="relative flex items-center justify-center gap-2">
                 View My Projects <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -137,7 +149,7 @@ const Hero = () => {
         <div className="w-[1px] h-10 sm:h-12 bg-gradient-to-b from-[#fbb03c] to-transparent" />
         <span className="text-[10px] uppercase tracking-[0.2em] text-white">Scroll</span>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -27,7 +27,7 @@ const portfolioItems = [
     title: "Moviehub",
     category: "Full Stack Development",
     description: "A dynamic movie streaming platform featuring real-time data fetching, user authentication, and a responsive glassmorphic interface.",
-    link: "movie-hub-sigma-five.vercel.app/",
+    link: "https://movie-hub-sigma-five.vercel.app/",
     tags: ["React", "local storage", "firebase", "framer motion", "tailwind", "authentication"]
   },
 {
@@ -35,7 +35,7 @@ const portfolioItems = [
     title: "NeuralTrade Predictor",
     category: "Fintech & Full-Stack",
     description: "A high-fidelity trading dashboard featuring real-time market analysis, predictive signaling, and a glassmorphic 'Neural Log' for tracking asset volatility.",
-    link: "https://movie-hub-sigma-five.vercel.app/", // Note: You might want to update this URL to match the title
+    link: "https://my-project-delta-nine-80.vercel.app/", // Note: You might want to update this URL to match the title
     tags: ["React", "Firebase", "Framer Motion", "Tailwind CSS", "Recharts", "Lucide Icons","Socket","API Integration",""]
   },
   {

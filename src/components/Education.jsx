@@ -20,7 +20,7 @@ const Education = () => {
   }, []);
 
   return (
-    <div className="w-full py-20">
+    <section id="education" className="w-full py-20">
       {/* Heading */}
       <h1 className="text-center text-4xl md:text-5xl font-bold text-[#fbb03c] mb-16 autoShow">
         Education Timeline
@@ -130,7 +130,7 @@ const Education = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
