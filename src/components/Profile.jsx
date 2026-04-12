@@ -136,7 +136,7 @@ const Hero = () => {
           {/* Tagline */}
           <div className="mt-10 sm:mt-12">
              <ShinyText 
-                text="Architecting scalable systems with modern aesthetics" 
+                text="Scroll down to explore porfoilio" 
                 speed={3} 
                 className="text-[10px] sm:text-xs font-mono text-white/30 uppercase tracking-[0.3em]" 
              />

@@ -1,4 +1,5 @@
 import React from 'react';
+// Changed back to named import to fix the SyntaxError
 import { GitHubCalendar } from 'react-github-calendar'; 
 import { motion } from 'framer-motion';
 
@@ -9,7 +10,10 @@ const Contribution = () => {
   };
 
   return (
-    <section id='contrebution' className="py-20 flex flex-col items-center justify-center bg-transparent">
+    /* Added 'relative' and 'z-20' to ensure this section sits 
+       firmly above the particle background layer.
+    */
+    <section id='contrebution' className="relative z-20 py-20 flex flex-col items-center justify-center bg-transparent">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -26,10 +30,10 @@ const Contribution = () => {
           </p>
         </div>
 
+        {/* Glassmorphism UI */}
         <div className="relative group p-10 rounded-[2.5rem] bg-white/[0.01] border border-white/5 backdrop-blur-3xl overflow-hidden shadow-2xl">
           <div className="absolute -top-24 -left-24 w-64 h-64 bg-[#fa9828]/5 rounded-full blur-[120px] pointer-events-none" />
           
-          {/* ✅ Fixed: Added no-scrollbar class here */}
           <div 
             className="flex justify-start md:justify-center items-center overflow-x-auto no-scrollbar py-4" 
             data-hoverable 

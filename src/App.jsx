@@ -1,9 +1,6 @@
 import './index.css';
-import { useEffect, useState } from "react";
 import { Routes, Route } from 'react-router-dom';
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
-import { motion } from "framer-motion"; // Added motion
+import { motion } from "framer-motion";
 
 import Navbar from './components/Navbar';
 import CustomCursor from './components/customcursor';
@@ -15,7 +12,6 @@ import ScrollToTop from './components/ScrollToTop';
 import Contact from './components/Contact';
 import Contribution from './components/contrebution';
 
-// A simple reusable wrapper for scroll animations
 const ScrollReveal = ({ children }) => (
   <motion.div
     initial={{ opacity: 0, y: 40 }}
@@ -28,82 +24,15 @@ const ScrollReveal = ({ children }) => (
 );
 
 function App() {
-  const [init, setInit] = useState(false);
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
-
-  const particlesOptions = {
-    fpsLimit: 120,
-    interactivity: {
-      events: {
-        onHover: {
-          enable: true,
-          mode: "grab",
-        },
-      },
-      modes: {
-        grab: {
-          distance: 140,
-          links: { opacity: 0.5 },
-        },
-      },
-    },
-    particles: {
-      color: { value: "#fbb03c" }, 
-      links: {
-        color: "#fbb03c",
-        distance: 150,
-        enable: true,
-        opacity: 0.15,
-        width: 1,
-      },
-      move: {
-        direction: "none",
-        enable: true,
-        outModes: { default: "bounce" },
-        random: true,
-        speed: 0.8,
-        straight: false,
-      },
-      number: {
-        density: { enable: true, area: 800 },
-        value: 80,
-      },
-      opacity: {
-        value: 0.3,
-      },
-      shape: { type: "circle" },
-      size: {
-        value: { min: 1, max: 3 },
-      },
-    },
-    detectRetina: true,
-  };
-
   return (
-    <div className="relative min-h-screen bg-[#050505] text-white selection:bg-[#fbb03c]/30">
-      {/* Live Animated Background */}
-      {init && (
-        <Particles
-          id="tsparticles"
-          options={particlesOptions}
-          className="absolute inset-0 z-0 pointer-events-none"
-        />
-      )}
-
+    <div className="relative min-h-screen bg-black text-white selection:bg-[#fbb03c]/30">
       {/* Main Content Area */}
       <div className="relative z-10">
         <CustomCursor />
         <Navbar />
         <ScrollToTop /> 
         
-        <Routes>             
+        <Routes>              
           <Route
             path="/"
             element={
