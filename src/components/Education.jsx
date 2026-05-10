@@ -55,7 +55,7 @@ const Education = () => {
             },
             {
               title: "Fullstack Development",
-              time: "2025 – Present",
+              time: "2025 – 2026",
               org: "Creative IT",
               extra: ["Finished"],
             },

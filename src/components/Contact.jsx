@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
-    const navigate = useNavigate(); 
-    
-    const email = "joyshadman@gmail.com"; 
+    const navigate = useNavigate();
+
+    const email = "joyshadman@gmail.com";
     const github = "https://github.com/joyshadman";
     const linkedin = "https://linkedin.com/in/joyshadman";
 
@@ -15,7 +15,7 @@ const Contact = () => {
             icon: <FaEnvelope className="text-orange-400" />,
             label: "Email",
             value: email,
-            link: `mailto:${email}`,
+            link: `https://mail.google.com/mail/?view=cm&to=${email}`,
         },
         {
             icon: <FaLinkedin className="text-blue-500" />,

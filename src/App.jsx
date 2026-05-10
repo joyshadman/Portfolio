@@ -11,6 +11,7 @@ import LoginPage from './pages/LoginPage';
 import ScrollToTop from './components/ScrollToTop'; 
 import Contact from './components/Contact';
 import Contribution from './components/contrebution';
+import Certification from './components/Certification';
 
 const ScrollReveal = ({ children }) => (
   <motion.div
@@ -40,6 +41,7 @@ function App() {
                 <ScrollReveal><Aboutus /></ScrollReveal>
                 <ScrollReveal><Portfolio /></ScrollReveal>
                 <ScrollReveal><Contribution /></ScrollReveal>
+                <ScrollReveal><Certification /></ScrollReveal>    
                 <ScrollReveal><Contact /></ScrollReveal>
                 <Footer />
               </main>
