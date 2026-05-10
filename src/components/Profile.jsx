@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedin, FaArrowRight, FaDownload } from "react-icons/fa";
 import { motion } from "framer-motion";
 import SplitText from "./Splittext"; 
 import ShinyText from "./ShinyText"; 
+import Resume from "../assets/Shadman-Islam-Resume.pdf";
 
 const Hero = () => {
   // Dynamically calculate years of experience (Start date: 2024)
@@ -105,7 +106,7 @@ const Hero = () => {
 
             {/* Secondary CTA: Resume */}
             <a 
-              href="#" 
+              href={Resume} 
               target="_blank" 
               rel="noreferrer"
               className="w-full sm:w-auto group px-8 py-4 rounded-2xl border border-white/10 bg-white/5 text-white font-bold backdrop-blur-xl hover:bg-white/10 hover:border-white/20 transition-all flex items-center justify-center gap-2 hover:scale-105 active:scale-95"

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react"; // Added Particles
-import { loadSlim } from "@tsparticles/slim"; // Added loadSlim
+import Particles, { initParticlesEngine } from "@tsparticles/react"; 
+import { loadSlim } from "@tsparticles/slim"; 
 import "../componentscss/about.css";
 import Education from "./Education";
 import Profile from "./Profile.jsx";
 import SkillStack from "./Skillstack.jsx";
 
+
 const Aboutus = () => {
-  // --- Particle Engine State & Initialization ---
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -17,7 +17,6 @@ const Aboutus = () => {
       setInit(true);
     });
   }, []);
-  // ---------------------------------------------
 
   useEffect(() => {
     const animateOnScrollElements = document.querySelectorAll(".animate-on-scroll");
