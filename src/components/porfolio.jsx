@@ -12,8 +12,17 @@ import img6 from "../assets/portfolio/6.png";
 import img7 from "../assets/portfolio/7.png";
 import img8 from "../assets/portfolio/8.png";
 import img9 from "../assets/portfolio/9.png";
+import img10 from "../assets/portfolio/10.png";
 
 const portfolioItems = [
+  {
+    img: img10,
+    title: "Apexium AI Studio",
+    category: "AI Website Builder",
+    description: "AI-powered website builder that generates responsive layouts, content, and HTML from natural language prompts, with publishing, community sharing, and export features.",
+    link: "https://ai-website-henna-eight.vercel.app/",
+    tags: ["React", "Node.js", "Express.js", "Neon PostgreSQL", "Prisma", "Better Auth", "GPT-OSS-120B", "Tailwind CSS"]
+  },
   {
     img: img6,
     title: "TaskFlow",
@@ -30,13 +39,13 @@ const portfolioItems = [
     link: "https://movie-hub-sigma-five.vercel.app/",
     tags: ["React", "local storage", "firebase", "framer motion", "tailwind", "authentication"]
   },
-{
+  {
     img: img9,
-    title: "NeuralTrade Predictor",
+    title: "Trade Predictor",
     category: "Fintech & Full-Stack",
     description: "A high-fidelity trading dashboard featuring real-time market analysis, predictive signaling, and a glassmorphic 'Neural Log' for tracking asset volatility.",
     link: "https://my-project-delta-nine-80.vercel.app/", // Note: You might want to update this URL to match the title
-    tags: ["React", "Firebase", "Framer Motion", "Tailwind CSS", "Recharts", "Lucide Icons","Socket","API Integration",""]
+    tags: ["React", "Firebase", "Framer Motion", "Tailwind CSS", "Recharts", "Lucide Icons", "Socket", "API Integration", "socket.io", "real-time data"]
   },
   {
     img: img7,
@@ -60,7 +69,7 @@ const portfolioItems = [
     category: "Web Design",
     description: "Elegant digital menu and reservation system for premium dining.",
     link: "https://restaurant-project-one-lyart.vercel.app/",
-    tags: ["CSS Grid", "Responsive"]
+    tags: ["React", "Tailwind", "Responsive Design"]
   },
   {
     img: img3,
@@ -68,7 +77,7 @@ const portfolioItems = [
     category: "Branding",
     description: "Minimalist coffee brand experience with integrated online ordering.",
     link: "https://coffee-website-project-rosy.vercel.app/",
-    tags: ["Branding", "Frontend"]
+    tags: ["React", "Tailwind", "Responsive Design"]
   },
   {
     img: img4,
@@ -76,7 +85,7 @@ const portfolioItems = [
     category: "Travel Tech",
     description: "A tour booking platform with smooth UX and responsive design.",
     link: "https://touring-website-project.vercel.app/",
-    tags: ["React", "API"]
+    tags: ["React", "Tailwind", "Responsive Design"]
   },
   {
     img: img2,
@@ -84,7 +93,7 @@ const portfolioItems = [
     category: "UI/UX Design",
     description: "Interactive booking experience with fluid transitions and immersive imagery.",
     link: "https://jadoo-project.vercel.app/",
-    tags: ["Next.js", "UX"]
+    tags: ["React", "Tailwind", "Responsive Design"]
   },
 ];
 
